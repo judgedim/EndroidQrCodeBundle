@@ -29,7 +29,7 @@ class QrCodeController extends Controller
     public function generateAction($text, $extension)
     {
         $qrCode = new QrCode();
-        $qrCode->setText($text);
+        $qrCode->setText(urldecode($text));
         $qrCode = $qrCode->get($extension);
 
         $mime_type = 'image/'.$extension;
